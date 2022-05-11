@@ -17,26 +17,41 @@
 
     <main class="container d-flex flex-collumn  justify-content-center align-items-center">
         <section>
-            <form class="row">
+            <form class="row needs-validation" id="validForm" novalidate>
                 <div class="col-md-6">
                     <label for="firstname" class="form-label">Prénom</label>
-                    <input type="text" class="form-control" name="firstname" id="firstname">
+                    <input type="text" class="form-control" name="firstname" id="firstname" autocomplete="off">
+                    <div class="invalid-feedback">
+                        Veuillez saisir votre prénom.
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <label for="lastname" class="form-label">Nom</label>
-                    <input type="text" class="form-control" name="lastname" id="lastname">
+                    <input type="text" class="form-control" name="lastname" id="lastname" autocomplete="off">
+                    <div class="invalid-feedback">
+                        Veuillez saisir votre nom.
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <label for="email" class="form-label">E-mail</label>
-                    <input type="email" class="form-control" name="email" id="email">
+                    <input type="email" class="form-control" name="email" id="email" autocomplete="off">
+                    <div class="invalid-feedback">
+                        Veuillez saisir votre email.
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <label for="phoneNumber" class="form-label">Téléphone</label>
-                    <input type="tel" class="form-control" name="phoneNumber" id="phoneNumber">
+                    <input type="tel" class="form-control" name="phoneNumber" id="phoneNumber" autocomplete="off">
+                    <div class="invalid-feedback">
+                        Veuillez saisir votre téléphone.
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <label for="address" class="form-label">Adresse</label>
-                    <input type="text" class="form-control" name="address" id="address">
+                    <input type="text" class="form-control" name="address" id="address" autocomplete="off">
+                    <div class="invalid-feedback">
+                        Veuillez saisir votre adresse.
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <label for="city" class="form-label">Ville</label>
@@ -48,10 +63,16 @@
                         <option value="">Lille</option>
                         <option value="">Clermont-Fd</option>
                     </select>
+                    <div class="invalid-feedback">
+                        Veuillez choisir votre ville.
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <label for="postcode" class="form-label">Code postal</label>
-                    <input type="text" class="form-control" name="postcode" id="postcode">
+                    <input type="text" class="form-control" name="postcode" id="postcode" autocomplete="off">
+                    <div class="invalid-feedback">
+                        Veuillez saisir votre code postal.
+                    </div>
                 </div>
                 <div class="col-12">
                     <div class="mb-3 mt-2 form-check">
@@ -59,6 +80,9 @@
                         <label class="form-check-label font-weight-bold" for="conditions">
                             J'accepte les conditions
                         </label>
+                        <div class="invalid-feedback">
+                            Merci de lire les conditions avant de valider.
+                        </div>
                     </div>
                 </div>
                 <div class="col-12">
@@ -80,6 +104,7 @@
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
     <script src="./bootstrap-4.5.3-dist/js/bootstrap.min.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
