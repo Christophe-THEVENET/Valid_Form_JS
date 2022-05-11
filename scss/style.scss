@@ -10,3 +10,14 @@ body {
     background-color: rgb(5, 75, 90);
     color: rgb(150, 182, 210);
 }
+
+header {
+    background-color: rgb(21, 112, 115);
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px 15px -3px rgb(5, 46, 39);
+    margin-bottom: 100px;
+}
+
