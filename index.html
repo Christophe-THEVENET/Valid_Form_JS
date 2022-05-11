@@ -15,10 +15,9 @@
         <h1>Valider un formulaire avec JS</h1>
     </header>
 
-    <main class="container">
-
+    <main class="container d-flex flex-collumn  justify-content-center align-items-center">
         <section>
-            <form>
+            <form class="row">
                 <div class="col-md-6">
                     <label for="firstname" class="form-label">Prénom</label>
                     <input type="text" class="form-control" name="firstname" id="firstname">
@@ -54,13 +53,17 @@
                     <label for="postcode" class="form-label">Code postal</label>
                     <input type="text" class="form-control" name="postcode" id="postcode">
                 </div>
-                <div class="col-md-6 mt-4">
-                    <input class="form-check-input" type="checkbox" id="conditions" name="conditions">
-                    <label class="form-check-label font-weight-bold" for="conditions">
-                        J'accepte les conditions
-                    </label>
+                <div class="col-12">
+                    <div class="mb-3 mt-2 form-check">
+                        <input class="form-check-input" type="checkbox" id="conditions" name="conditions">
+                        <label class="form-check-label font-weight-bold" for="conditions">
+                            J'accepte les conditions
+                        </label>
+                    </div>
                 </div>
-                <button type="submit" class="btn btn-primary w-25 mt-3">Valider</button>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary w-25 mt-3">Valider</button>
+                </div>
             </form>
         </section>
 
