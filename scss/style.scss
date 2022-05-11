@@ -7,17 +7,21 @@
 }
 
 body {
-    background-color: rgb(5, 75, 90);
-    color: rgb(150, 182, 210);
+    background-color: rgb(161, 174, 190);
+    color: rgb(9, 55, 101);
 }
 
 header {
-    background-color: rgb(21, 112, 115);
-    height: 10vh;
+    background-color: rgb(17, 43, 70);
+    color: rgb(150, 182, 210);
+    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 1px 1px 15px -3px rgb(5, 46, 39);
+    box-shadow: 1px 1px 15px -3px rgb(0, 0, 0);
     margin-bottom: 100px;
 }
 
+.form-label {
+  font-weight: bold;
+}
