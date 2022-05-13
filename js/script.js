@@ -34,12 +34,12 @@
     );
 })(); // la fonction qui s'auto lance (encapsulée ds une autre fonction)
 
-// _____________________________________________________________________
+/* _____________________________________________________________________
 
-/* ------------------- fonctions de validations générales (vide, nb charactéres, etc...) --------------------------------------------- */
-
+ fonctions de validations générales (vide, nb charactéres, etc...)
+_____________________________________________________________________
+ */
 // validation d'un champ REQUIRED
-
 const validateRequired = (input) => {
     return !(input.value == null || input.value == '');
 };
@@ -64,6 +64,15 @@ const validateMail = (input) => {
         positionLastPoint == email.length - 1
     );
 };
+
+// validation du code postal
+const validatePostCode = (input) =>
+    input.value.match('^((0[1-9])|([1-8][0-9])|(9[0-8])|(2A)|(2B))[0-9]{3}$');
+
+// validation adresse
+const validateAddress = (input) => input.value.match('')
+
+
 
 /* ------------------- fonctions de validations par type d'input --------------------------------------------- */
 
@@ -107,6 +116,11 @@ const validateFields = (input) => {
         // validation du champ Email
         case 'email':
             if (!validateMail(input)) {
+                return false;
+            }
+            return true;
+        case 'postCode':
+            if (!validatePostCode(input)) {
                 return false;
             }
             return true;
