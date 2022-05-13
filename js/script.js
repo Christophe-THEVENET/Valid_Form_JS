@@ -1,4 +1,5 @@
-// Example starter JavaScript for disabling form submissions if there are invalid fields
+/* =============== FONCTION AUTOSTART CHECK INPUT FORMULAIRE ======================= */
+
 (function () {
     'use strict';
     //Récupération du formulaire
@@ -34,11 +35,8 @@
     );
 })(); // la fonction qui s'auto lance (encapsulée ds une autre fonction)
 
-/* _____________________________________________________________________
+/* =============== FONCTIONS DE VALIDATION DIF INPUT  ====================== */
 
- fonctions de validations générales (vide, nb charactéres, etc...)
-_____________________________________________________________________
- */
 // validation d'un champ REQUIRED
 const validateRequired = (input) => {
     return !(input.value == null || input.value == '');
@@ -70,38 +68,22 @@ const validatePostCode = (input) =>
     input.value.match('^((0[1-9])|([1-8][0-9])|(9[0-8])|(2A)|(2B))[0-9]{3}$');
 
 // validation adresse
-const validateAddress = (input) => input.value.match('')
+const validateAddress = (input) => input.value.match(/^\s*\S+(?:\s+\S+){2}/);
 
+// validation numéro de téléphone
+const validatePhoneNumber = (input) =>
+    input.value.match(/^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/);
 
+// validation d'un checxbox
+const validateTerms = (input) => input.checked;
 
-/* ------------------- fonctions de validations par type d'input --------------------------------------------- */
+/* =============== VALIDATION DES CHAMPS DE FORMULAIRES =================== */
 
 const validateFields = (input) => {
     let fieldName = input.name;
 
-    // validation du champ Prénom
-    /* if (fieldName == 'firstName') {
-        if (!validateRequired(input)) {
-            return false;
-        }
-        if (!validateLength(input, 2, 20)) {
-            return false;
-        }
-        if (!validateText(input)) {
-            return false;
-        }
-        return true;
-    }
-
-    // validation du champ Email
-    if (fieldName == 'email') {
-        if (!validateMail(input)) {
-            return false;
-        }
-    } */
-
     switch (fieldName) {
-        // validation du champ Prénom
+        // validation du champ Prénom -------------------
         case 'firstName':
             if (!validateRequired(input)) {
                 return false;
@@ -113,14 +95,63 @@ const validateFields = (input) => {
                 return false;
             }
             return true;
-        // validation du champ Email
+        // validation du champ Nom ------------------------
+        case 'lastName':
+            if (!validateRequired(input)) {
+                return false;
+            }
+            if (!validateLength(input, 2, 20)) {
+                return false;
+            }
+            if (!validateText(input)) {
+                return false;
+            }
+            return true;
+        // validation du champ Email ---------------------
         case 'email':
+            if (!validateRequired(input)) {
+                return false;
+            }
             if (!validateMail(input)) {
                 return false;
             }
             return true;
+        // validation du numéro de téléphone ---------------------
+        case 'phoneNumber':
+            if (!validateRequired(input)) {
+                return false;
+            }
+            if (!validatePhoneNumber(input)) {
+                return false;
+            }
+            return true;
+        // validation de l'adresse ---------------------
+        case 'address':
+            if (!validateRequired(input)) {
+                return false;
+            }
+            if (!validateAddress(input)) {
+                return false;
+            }
+            return true;
+        // validation de la ville ---------------------
+        case 'city':
+            if (!validateRequired(input)) {
+                return false;
+            }
+            return true;
+        // validation du code postal ---------------------
         case 'postCode':
+            if (!validateRequired(input)) {
+                return false;
+            }
             if (!validatePostCode(input)) {
+                return false;
+            }
+            return true;
+        // validation de la check-box ---------------------
+        case 'conditions':
+            if (!validateRequired(input)) {
                 return false;
             }
             return true;
