@@ -1,4 +1,4 @@
-/* =============== FONCTION AUTOSTART CHECK INPUT FORMULAIRE ======================= */
+ /* =============== FONCTION AUTOSTART CHECK INPUT FORMULAIRE ======================= */
 
 (function () {
     'use strict';
@@ -31,21 +31,18 @@
                 }
             });
         },
-        false // je crois c'est pour le bouillonnement
+        false // je crois c'est pour le bouillonnement false par défaut si true = capture
     );
 })(); // la fonction qui s'auto lance (encapsulée ds une autre fonction)
 
 /* =============== FONCTIONS DE VALIDATION DIF INPUT  ====================== */
 
 // validation d'un champ REQUIRED
-const validateRequired = (input) => {
-    return !(input.value == null || input.value == '');
-};
+const validateRequired = (input) => !(input.value == null || input.value == '');
 
 // validation du nombre de caractéres min et max
-const validateLength = (input, minLength, maxLength) => {
-    return !(input.value.length < minLength || input.value.length > maxLength);
-};
+const validateLength = (input, minLength, maxLength) =>
+    !(input.value.length < minLength || input.value.length > maxLength);
 
 // validation d'un input text (Regex)
 const validateText = (input) => input.value.match('^[A-z]+$');
@@ -79,7 +76,7 @@ const validateTerms = (input) => input.checked;
 
 /* =============== VALIDATION DES CHAMPS DE FORMULAIRES =================== */
 
-const validateFields = (input) => {
+function validateFields(input) {
     let fieldName = input.name;
 
     switch (fieldName) {
@@ -155,5 +152,7 @@ const validateFields = (input) => {
                 return false;
             }
             return true;
+        default:
+            break;
     }
-};
+}
