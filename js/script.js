@@ -34,19 +34,38 @@
     );
 })();
 
+/* ------------------- fonctions de validations générales (vide, nb charactéres, etc...) --------------------------------------------- */
+
 // validation d'un champ REQUIRED
 function validateRequired(input) {
     return !(input.value == null || input.value == '');
 }
 
+// validation du nombre de caractéres min et max
+/* const validateLength = (input, minLength, maxLength) => {
+    return !(input.value.length < minLength && input.value.length > maxLength);
+}; */
+
+function validateLength(input, minLength, maxLength) {
+    console.log(input.value.length);
+    return !(input.value.length < minLength || input.value.length > maxLength);
+}
+
+/* ------------------- fonctions de validations par type d'input --------------------------------------------- */
+
 function validateFields(input) {
     let fieldName = input.name;
 
+    // validation du champ Prénom
     if (fieldName == 'firstName') {
         if (!validateRequired(input)) {
             return false;
-        } else {
-            return true;
         }
+
+        if (!validateLength(input, 2, 20)) {
+            return false;
+        }
+
+        return true;
     }
 }
